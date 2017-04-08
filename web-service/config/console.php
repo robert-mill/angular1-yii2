@@ -13,6 +13,9 @@ return [
     'modules' => [
         'gii' => 'yii\gii\Module',
     ],
+    'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',

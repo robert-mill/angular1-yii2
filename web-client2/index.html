@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap-theme.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/styles/custom.css"/>
 </head>
 <!-- define angular controller -->
 <body ng-controller="index">
@@ -22,7 +23,8 @@
       </ul>
     </div>
   </nav>
-  <div id="main" class="container"> 
+  <div id="main" class="container">
+
     <!-- angular templating -->
 		<!-- this is where content will be injected -->
     <div ng-view class="animate"></div>
@@ -36,7 +38,10 @@
   <script src="assets/angular/angular.min.js"></script>
   <script src="assets/angular-route/angular-route.min.js"></script>
   <script src="assets/angular-animate/angular-animate.min.js"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+
+
   <script src="app.js"></script>
   <script src="controllers/site.js"></script>
   <script src="models/book.js"></script>

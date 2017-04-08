@@ -13,10 +13,11 @@ class Book extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'author', 'publisher', 'year'], 'required'],
-            [['id', 'year'], 'integer'],            
+            [['id', 'year'], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['description'], 'string'],
             [['author','publisher'], 'string', 'max' => 50]
         ];
     }
 }
+

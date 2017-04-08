@@ -6,11 +6,11 @@ done for you ensuring many details to be set up correctly while more advanced th
 
 ## Create Database Structure
 
-We'll use database named `angular_spa` so create it. Then add `book` table with following structure:
+We'll use database named `rosemary100317` so create it. Then add `book` table with following structure:
 
 ![](images/dbstructure.png)
 
-You can use [angular_spa.sql](../web-service/angular_spa.sql) in order to import it.
+You can use [rosemary100317.sql](../web-service/rosemary100317.sql) in order to import it.
 
 Insert some data in the table, you can create more tables but for the sake of simplicity, in this tutorial we'll use
 only `book`.
@@ -23,7 +23,7 @@ to specify your MySQL settings:
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=angular_spa',
+    'dsn' => 'mysql:host=localhost;dbname=rosemary100317',
     'username' => 'root', // specify your username here
     'password' => '', // specify your password here
     'charset' => 'utf8',

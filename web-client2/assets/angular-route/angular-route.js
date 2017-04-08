@@ -344,6 +344,11 @@ function $RouteProvider() {
      *          $scope.params = $routeParams;
      *      })
      *
+     *      .controller('StockitemsController', function(){
+     *          $scope.name = "stockitemsController";
+     *          $scope.params = $routeParams;
+     *      })
+     *
      *     .config(function($routeProvider, $locationProvider) {
      *       $routeProvider
      *        .when('/Book/:bookId', {

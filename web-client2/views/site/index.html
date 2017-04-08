@@ -1,5 +1,14 @@
-<div class="jumbotron text-center">
+<div class="jumbotron text-center row">
 	<h1>Home Page</h1>
-	
-	<p>{{ message }}</p>
+
+	<div class="productBox col-lg-3 col-md-6 col-sm-4 col-xs-12" ng-repeat="data in message | unique: 'category' ">
+		<div class="arc-top"></div>
+		<div class="productTitle">{{data.title }} &mdash; {{ data.size }}</div>
+		<div class="productImage"><img src="../uploaded_imgs/{{data.image}}"/></div>
+		<div class="productDescription">{{data.description}}</div>
+		<div class="productPrice">{{data.price}}</div>
+		<div class="productDiscountPrice">{{data.discountprice}}</div>
+		<button class="btn btn-success">View {{data.category}}</button>
+		<div class="arc-bottom"></div>
+	</div>
 </div>
