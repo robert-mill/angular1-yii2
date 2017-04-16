@@ -1,5 +1,5 @@
 'use strict';
-spaApp_book.config(['$routeProvider', function($routeProvider) {
+spaApp_book.config(['$routeProvider',  function($routeProvider) {
   $routeProvider
 	.when('/book/index', {
 		templateUrl: 'views/book/index.html',
@@ -24,6 +24,10 @@ spaApp_book.config(['$routeProvider', function($routeProvider) {
           }
         }
 	})
+	.when('/book/category:category', {
+		templateUrl: 'views/book/index.html',
+		controller: 'category'
+	})
 	.when('/book/delete/:bookId', {
 		templateUrl: 'views/book/index.html',
 		controller: 'delete',
@@ -33,11 +37,13 @@ spaApp_book.config(['$routeProvider', function($routeProvider) {
 	});
 }]);
 
-spaApp_book.controller('index', ['$scope', '$http', 'services', 
+
+
+spaApp_book.controller('index', ['$scope', '$http', 'services',
 	function($scope,$http,services) {
 	$scope.message = 'Everyone come and see how good I look!';
 	services.getBooks().then(function(data){
-        $scope.books = data.data;
+        $scope.book = data.data;
     });	
 	$scope.deleteBook = function(bookID) {
 		if(confirm("Are you sure to delete book number: " + bookID)==true && bookID>0){
@@ -45,7 +51,37 @@ spaApp_book.controller('index', ['$scope', '$http', 'services',
 			$route.reload();
 		}
 	};
+
 }])
+
+.controller('category', ['$scope', '$http',   function($scope,$http) {
+    // create a message to display in our view
+        var res = getUrlParams();
+    $http({
+        url: 'http://localhost/rosemary080417/web-service/web/stockitems?category='+res,
+    }) .then(function (response) {
+        $scope.pageheading = res;
+        $scope.message = response.data;
+    });
+    var addToCart = function(){
+        $scope.cartitemiterator = [{car:'red'}];
+    }
+}])
+
+
+
+
+    .controller('category_hold', ['$scope', '$http', function($scope,$http) {
+        var res = getUrlParams();
+        $http.get('http://localhost/rosemary080417/web-service/web/stockitems/'+res)
+            .then(function (response) {
+                $scope.pageheading = res;
+                $scope.message = response.data;
+            })
+
+
+    }])
+
 .controller('create', ['$scope', '$http', 'services','$location','book', 
 	function($scope,$http,services,$location,book) {
 	$scope.message = 'Look! I am an about page.';
@@ -65,3 +101,10 @@ spaApp_book.controller('index', ['$scope', '$http', 'services',
         var results = services.updateBook(book);
     } 
 }]);
+
+function getUrlParams() {
+    var query =  window.location.href;
+    var url = query.split(":");
+
+return url[2];
+}

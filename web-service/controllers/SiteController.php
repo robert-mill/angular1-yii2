@@ -31,6 +31,17 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'corsFilter'  => [
+                'class' => \yii\filters\Cors::className(),
+                'cors'  => [
+                    // restrict access to domains:
+                    'Origin'                           => static::allowedDomains(),
+                    'Access-Control-Request-Method'    => ['POST','GET'],
+                    'Access-Control-Allow-Credentials' => true,
+                    'Access-Control-Max-Age'           => 3600,                 // Cache (seconds)
+
+                ],
+            ],
         ];
     }
 
@@ -95,4 +106,13 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public static function allowedDomains()
+    {
+        return [
+            // '*',                        // star allows all domains
+            'http://localhost:3000',
+            'http://test2.example.com',
+        ];
+    }
+
 }

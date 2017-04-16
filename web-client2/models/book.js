@@ -3,10 +3,10 @@ spaApp_book.factory("services", ['$http','$location','$route',
 	function($http,$location,$route) {
     var obj = {};
     obj.getBooks = function(){
-        return $http.get(serviceBase + 'books');
+        return $http.get(serviceBase + 'book');
     }	
 	obj.createBook = function (book) {
-		return $http.post( serviceBase + 'books', book )
+		return $http.post( serviceBase + 'book', book )
 			.then( successHandler )
 			.catch( errorHandler );
 		function successHandler( result ) {
@@ -18,11 +18,11 @@ spaApp_book.factory("services", ['$http','$location','$route',
 		}
 	};	
 	obj.getBook = function(bookID){
-        return $http.get(serviceBase + 'books/' + bookID);
+        return $http.get(serviceBase + 'book/' + bookID);
     }
 	
 	obj.updateBook = function (book) {
-	    return $http.put(serviceBase + 'books/' + book.id, book )
+	    return $http.put(serviceBase + 'book/' + book.id, book )
 			.then( successHandler )
 			.catch( errorHandler );
 		function successHandler( result ) {
@@ -34,7 +34,7 @@ spaApp_book.factory("services", ['$http','$location','$route',
 		}	
 	};	
 	obj.deleteBook = function (bookID) {
-	    return $http.delete(serviceBase + 'books/' + bookID)
+	    return $http.delete(serviceBase + 'book/' + bookID)
 			.then( successHandler )
 			.catch( errorHandler );
 		function successHandler( result ) {
