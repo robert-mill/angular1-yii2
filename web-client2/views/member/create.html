@@ -1,0 +1,63 @@
+<div>
+	<h1>BOOK CRUD</h1>
+	
+	<p>{{ message }}</p>
+	<form role="form" name="myForm">
+		<div class= "form-group" ng-class="{error: myForm.firstname.$invalid}">
+			<label> Firstname </label>
+			<div>
+			<input name="firstname" ng-model="member.title" type= "text" class= "form-control" placeholder="Firstname" required/>
+			<span ng-show="myForm.firstname.$dirty && myForm.firstname.$invalid" class="help-inline">Firstname Required</span>
+			</div>
+		</div>
+		<div class= "form-group">
+			<label> Lastname </label>
+			<div>
+			<textarea name="lastname" ng-model="member.lastname" class= "form-control" placeholder= "Lastname"></textarea>
+			</div>
+		</div>
+		<div class= "form-group" ng-class="{error: myForm.email.$invalid}">
+			<label> Email </label>
+			<div>
+			<input name="email" ng-model="member.email" type= "text" class= "form-control" placeholder="Email" required/>
+			<span ng-show="myForm.email.$dirty && myForm.email.$invalid" class="help-inline">Email Required</span>
+			</div>
+		</div>
+		<div class= "form-group" ng-class="{error: myForm.phone.$invalid}">
+			<label> Phone </label>
+			<div>
+			<input name="phone" ng-model="member.phone" type= "text" class= "form-control" placeholder="Phone" required/>
+			<span ng-show="myForm.phone.$dirty && myForm.phone.$invalid" class="help-inline">Phone Required</span>
+			</div>
+		</div>
+		<div class= "form-group" ng-class="{error: myForm.pass.$invalid}">
+			<label> Pass </label>
+			<div>
+			<input name="pass" ng-model="member.pass" type= "text" class= "form-control" placeholder="Pass" required/>
+			<span ng-show="myForm.pass.$dirty && myForm.pass.$invalid" class="help-inline">Pass Required</span>
+			</div>
+		</div>
+
+
+
+		<div class= "form-group" ng-class="{error: myForm.add.$invalid}">
+			<label> Add </label>
+			<div>
+				<input name="add" ng-model="member.add" type= "text" class= "form-control" placeholder="Add" required/>
+				<span ng-show="myForm.add.$dirty && myForm.add.$invalid" class="help-inline">Add Required</span>
+			</div>
+		</div>
+		<div class= "form-group" ng-class="{error: myForm.city.$invalid}">
+			<label> City </label>
+			<div>
+				<input name="city" ng-model="member.city" type= "text" class= "form-control" placeholder="City" required/>
+				<span ng-show="myForm.city.$dirty && myForm.city.$invalid" class="help-inline">City Required</span>
+			</div>
+		</div>
+	  
+		<a href="#/member/index" class="btn btn-default">Cancel</a>
+		<button ng-click="createMember(member);" 
+                ng-disabled="myForm.$invalid"
+                type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>

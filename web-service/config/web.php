@@ -46,10 +46,10 @@ $config = [
             'rules' => [
                 [
                     'class' => 'yii\rest\UrlRule', 
-                    'controller' => ['book','stockitems'],
+                    'controller' => ['book','stockitems','member','members'],
                 ],
             ],
-        ], 
+        ],
     ],
     'params' => $params,
 ];

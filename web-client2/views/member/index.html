@@ -1,0 +1,27 @@
+<div class="stock-items">
+    <ngcart-cart></ngcart-cart>
+    <ngcart-summary></ngcart-summary>
+    <ngcart-checkout></ngcart-checkout>
+	<div class="jumbotron text-center row">
+	<h3 class="page-header">{{ pageheading }}</h3>
+			<section>
+				<div class="row">
+					<div class="productBox col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in message  track by $index">
+						<div class="arc-top"></div>
+						<div class="portfolio-item col-lg-12 col-xs-12">
+							<div class="productTitle col-xs-12">{{ item.title }}</div>
+							<div class="productImage col-xs-12"><img src="./../uploaded_imgs/{{ item.image }}"/></div>
+							<div class="productDescription col-xs-12">{{ item.description }}</div>
+							<div class="productPrice col-lg-6 col-md-6 col-sm-6 col-xs-6">{{ item.price }}</div>
+                            <div class="productDiscountprice col-lg-6 col-md-6 col-sm-6 col-xs-6" ng-if="item.discountprice">{{ item.discountprice }}</div>
+                            <ngcart-addtocart class="btn btn-success" style="width:100%;" id="{{ item.id }}" title="{{ item.title }}" price="{{ item.price }}" quantity="1" quantity-max="30" data="item">Add to cart</ngcart-addtocart>
+
+						</div>
+						<div class="arc-bottom"></div>
+					</div>
+				</div>
+            </section>
+	</div>
+</div>
+
+
